@@ -9,6 +9,7 @@
 
 2. css 
   - 여러가지 방법들이 있지만 <style jsx>{`css구문`}</style> 추천 , 모듈 독립적으로 사용 가능, import 할 필요없음 
+  - 한 페이지 전역 설정 : <style jsx global>{`css구문`}</style>
   - 모든 페이지 전역 설정 : pages/_app.js 생성 
 
 ```js

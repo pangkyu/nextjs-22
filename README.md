@@ -23,3 +23,38 @@
     );
 }
 ```
+3. getServerSideProps() 
+   - 항상 html이 완전한 상태로 준비되어있기를 바랄 때 사용 -> 유저가 접속했을 때 모든 데이터가 페이지에 존재
+   - fetch를 통해 db를 불러올 수 있음, 프론트에 보이지 않고 백엔드에서 작동되기 때문에 API KEY를 넣거나 데이터를 가져오는 등의 일이 가능
+   
+4. URL에 변수 넣는 방법 
+   - [변수명].js 파일 생성
+
+5. redirects, rewrites 
+   - next.config.js 파일에서 다음과같이 입력
+
+  ```js
+  module.exports = {
+  reactStrictMode: true,
+  async redirects(){
+    return [
+      {
+        source:"/contact",
+        destination : "/form",
+        permanent: false,
+      }
+    ]
+  },
+  async rewrites(){
+    return[{
+      source: "/api/movies",
+      destination : `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`,
+    }];
+  },
+}
+  ```
+   - api key같은 정보들을 보여주지 않고 싶을때 사용
+
+6. catch url
+   - 홈페이지에서 클릭해서 들어오지 않아도 상세페이지에서 영화제목을 볼 수 있다. 
+   - [...변수명].js
